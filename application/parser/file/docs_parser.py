@@ -19,13 +19,13 @@ class PDFParser(BaseParser):
     def parse_file(self, file: Path, errors: str = "ignore") -> str:
         """Parse file."""
         try:
-            import PyPDF2
+            import PyPDF
         except ImportError:
-            raise ValueError("PyPDF2 is required to read PDF files.")
+            print(sys.exc_info())
         text_list = []
         with open(file, "rb") as fp:
             # Create a PDF object
-            pdf = PyPDF2.PdfReader(fp)
+            pdf = PyPDF.PdfReader(fp)
 
             # Get the number of pages in the PDF document
             num_pages = len(pdf.pages)
