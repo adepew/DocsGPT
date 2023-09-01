@@ -21,7 +21,7 @@ class PDFParser(BaseParser):
         try:
             import PyPDF
         except ImportError:
-            raise ValueError("PyPDF2 is required to read PDF files.")
+            print(sys.exc_info())
         text_list = []
         with open(file, "rb") as fp:
             # Create a PDF object
